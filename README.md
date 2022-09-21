@@ -8,6 +8,11 @@ Install the plugin from yarn:
 yarn add @ef2-digital/react
 ```
 
+This library is build with TypeScript, so type-definitions are shipped out-of-the-box.
+
+## Components
+Documentation: [Storybook](https://ef2-digital.github.io/react).
+
 ## Configuration
 
 ## Quick start
@@ -44,3 +49,6 @@ const DefaultLayout = ({ children }) => {
     );
 };
 ```
+
+## Theming
+By default all EF2 components lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
