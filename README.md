@@ -34,12 +34,12 @@ const App = ({ children }) => {
 ```
 
 Next.js:
-```js
-// components/layout/DefaultLayout.js
+```tsx
+// components/layout/DefaultLayout.tsx
 
 import { ThemeProvider } from "@ef2-digital/react";
 
-const DefaultLayout = ({ children }) => {
+const DefaultLayout = ({ children }: PropsWithChildren) => {
     return (
         <ThemeProvider>
             <main id="main">

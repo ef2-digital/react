@@ -14,16 +14,21 @@ export interface ButtonProps extends Attributes {
     rounded?: boolean;
 }
 
-const Button = ({ as: Tag = 'button', children, variant, color = 'primary', size, rounded, ...props }: ButtonProps) => {
+const Button = ({ as: Tag = 'button', children, variant, color = 'primary', size, rounded, className, ...props }: ButtonProps) => {
     const {
         theme: { button }
     } = useThemeContext();
 
     return (
         <Tag
-            className={classNames(getAttributeVariantClasses(button.variant, variant, color), getAttributeClasses(button.size, size), {
-                'rounded-full': rounded
-            })}
+            className={classNames(
+                getAttributeVariantClasses(button.variant, variant, color),
+                getAttributeClasses(button.size, size),
+                {
+                    'rounded-full': rounded
+                },
+                className
+            )}
             {...props}
         >
             {children}

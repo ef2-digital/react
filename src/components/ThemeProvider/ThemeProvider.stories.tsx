@@ -1,6 +1,8 @@
 import ThemeProvider from '../ThemeProvider';
 import Button from '../Button';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import Toggle from '../Toggle';
+import { Disclosure } from '@headlessui/react';
 
 export default {
     title: 'ThemeProvider',
@@ -13,34 +15,55 @@ export default {
             }
         }
     },
-    subcomponents: { Button }
+    subcomponents: { Button, Toggle }
 } as ComponentMeta<typeof ThemeProvider>;
 
 const Template: ComponentStory<typeof ThemeProvider> = ({ ...props }) => (
     <ThemeProvider {...props}>
-        <Button>Button</Button>
+        <div className="flex">
+            <Button className="mr-3">Button</Button>
+            <Disclosure>
+                <Toggle open />
+            </Disclosure>
+        </div>
     </ThemeProvider>
 );
 
-export const Orange = Template.bind({});
+export const Teal = Template.bind({});
 
-Orange.args = {
+Teal.args = {
     theme: {
         button: {
             variant: {
-                DEFAULT: { primary: 'bg-orange-600 hover:bg-orange-700 focus:ring-orange-500' }
+                DEFAULT: {
+                    BASE: 'transition-shadow rounded-none shadow-[3px_3px_0_0] hover:shadow-[4px_4px_0_0] focus:shadow-[4px_4px_0_0]',
+                    primary: 'shadow-primary-700 hover:shadow-primary-900 focus:shadow-primary-900'
+                }
+            }
+        },
+        toggle: {
+            variant: {
+                DEFAULT: {
+                    BASE: 'transition-shadow rounded-none shadow-[3px_3px_0_0] hover:shadow-[4px_4px_0_0] focus:shadow-[4px_4px_0_0]',
+                    primary: 'shadow-primary-700 hover:shadow-primary-900 focus:shadow-primary-900'
+                }
             }
         }
     }
 };
 
-export const Pink = Template.bind({});
+export const Gradient = Template.bind({});
 
-Pink.args = {
+Gradient.args = {
     theme: {
         button: {
             variant: {
-                DEFAULT: { primary: 'bg-pink-600 rounded-none hover:bg-pink-700 focus:ring-pink-500' }
+                DEFAULT: { BASE: 'border-none', primary: 'bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl' }
+            }
+        },
+        toggle: {
+            variant: {
+                DEFAULT: { primary: 'bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl' }
             }
         }
     }

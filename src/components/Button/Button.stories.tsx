@@ -20,7 +20,7 @@ export default {
             control: 'radio'
         },
         color: {
-            options: [undefined, 'primary'],
+            options: [undefined, 'primary', 'secondary'],
             control: 'radio'
         },
         size: {
@@ -30,7 +30,7 @@ export default {
         as: {
             options: ['button', 'a'],
             control: 'radio'
-        },
+        }
     }
 } as ComponentMeta<typeof Button>;
 
