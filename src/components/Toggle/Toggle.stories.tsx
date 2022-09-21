@@ -14,3 +14,4 @@ const Template: ComponentStory<typeof Toggle> = ({ ...props }) => (
 );
 
 export const Default = Template.bind({});
+Default.args = { open: false };

@@ -18,17 +18,19 @@ export const useThemeContext = () => {
     return useContext(ThemeContext);
 };
 
+export type PartialTheme = DeepPartial<Theme>;
+
 // Provider.
 export interface ThemeProviderProps {
-    theme?: DeepPartial<Theme>;
+    theme?: PartialTheme;
 }
 
-const mergeTheme = (defaultTheme: Theme, theme?: DeepPartial<Theme>): Theme => {
+const mergeTheme = (defaultTheme: Theme, theme?: PartialTheme): Theme => {
     if (!theme) {
         return defaultTheme;
     }
 
-    return mergeWith<Theme, DeepPartial<Theme>>(cloneDeep(defaultTheme), theme, (objValue, srcValue) => {
+    return mergeWith<Theme, PartialTheme>(cloneDeep(defaultTheme), theme, (objValue, srcValue) => {
         if (isString(objValue) && isString(srcValue)) {
             return twMerge(objValue, srcValue);
         }

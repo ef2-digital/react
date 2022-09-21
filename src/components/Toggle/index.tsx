@@ -1,21 +1,23 @@
 import { Disclosure } from '@headlessui/react';
 import classNames from 'classnames';
 import { forwardRef } from 'react';
+import { getAttributeVariantClasses } from '../../utils/theme';
+import { useThemeContext } from '../ThemeProvider';
 
 export interface ToggleProps {
     open: boolean;
+    variant?: string;
+    color?: string;
     className?: string;
 }
 
-const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(({ open, className }, ref) => {
+const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(({ open, variant, color, className }, ref) => {
+    const {
+        theme: { toggle }
+    } = useThemeContext();
+
     return (
-        <Disclosure.Button
-            ref={ref}
-            className={classNames(
-                'relative inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded bg-secondary hover:bg-secondary-700 hover:shadow-md focus:border-secondary-700 focus:bg-secondary focus:shadow-md focus:outline-dashed focus:outline-1 focus:outline-offset-4 focus:outline-secondary',
-                className
-            )}
-        >
+        <Disclosure.Button ref={ref} className={classNames(getAttributeVariantClasses(toggle.variant, variant, color), className)}>
             <span className="sr-only">Open hoofdmenu</span>
             <span
                 aria-hidden
