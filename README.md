@@ -78,7 +78,7 @@ export interface Theme {
 ```ts
 // theme.ts
 // 1. Create a 'theme.ts' file.
-import { PartialTheme } from "@ef2-digital/react";
+import type { PartialTheme } from '@ef2-digital/react';
 
 // 2. Define your theme.
 const theme: PartialTheme = {
