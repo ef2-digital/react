@@ -1,0 +1,69 @@
+{
+  "name": "@ef2-digital/react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "src",
+    "lib"
+  ],
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build": "rm -rf lib && rollup -c"
+  },
+  "author": {
+    "name": "EF2"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/ef2techniek/ef2-react/issues"
+  },
+  "homepage": "https://bitbucket.org/ef2techniek/ef2-react#readme",
+  "devDependencies": {
+    "@apollo/client": "^3.6.9",
+    "@babel/core": "^7.19.1",
+    "@headlessui/react": "^1.7.2",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^14.1.0",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack4": "^6.5.12",
+    "@storybook/manager-webpack4": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/lodash-es": "^4.17.6",
+    "@types/react": "^18.0.20",
+    "@types/rollup-plugin-peer-deps-external": "^2.2.1",
+    "autoprefixer": "^10.4.11",
+    "babel-loader": "^8.2.5",
+    "classnames": "^2.3.2",
+    "graphql": "^16.6.0",
+    "lodash-es": "^4.17.21",
+    "postcss": "^8.4.16",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^2.79.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "storybook-addon-apollo-client": "^4.0.12",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.3",
+    "next": "^12.3.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "dependencies": {
+    "tailwind-merge": "^1.6.0"
+  }
+}
