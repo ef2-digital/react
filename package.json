@@ -1,10 +1,13 @@
 {
-  "name": "@ef2-digital/react",
+  "name": "ef2-react",
   "version": "1.0.0",
-  "description": "",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ef2-digital/react.git"
+  },
   "files": [
     "src",
     "lib"
@@ -15,9 +18,7 @@
     "deploy-storybook": "gh-pages -d storybook-static",
     "build": "rm -rf lib && rollup -c"
   },
-  "author": {
-    "name": "EF2"
-  },
+  "author": "EF2",
   "license": "ISC",
   "homepage": "https://github.com/ef2-digital/react",
   "devDependencies": {
@@ -61,8 +62,14 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "readme": "ERROR: No README data found!",
   "dependencies": {
     "tailwind-merge": "^1.6.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ef2-digital/react/issues"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "description": ""
 }
