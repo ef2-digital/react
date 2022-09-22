@@ -1,5 +1,5 @@
 {
-  "name": "ef2-react",
+  "name": "@ef2-digital/react",
   "version": "1.0.0",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
