@@ -3,9 +3,15 @@ import { PropsWithChildren } from 'react';
 
 export interface CopyrightProps {
     className?: string;
+    label?: string;
+    screenReader?: string;
 }
 
-const Copyright = ({ className }: PropsWithChildren<CopyrightProps>) => {
+const Copyright = ({
+    className,
+    label = 'Gebouwd door',
+    screenReader = 'EF2 (opent in een nieuw venster)'
+}: PropsWithChildren<CopyrightProps>) => {
     return (
         <a
             className={classNames('text-white inline-flex items-center hover:underline', className)}
@@ -13,7 +19,7 @@ const Copyright = ({ className }: PropsWithChildren<CopyrightProps>) => {
             target="_blank"
             rel="noreferrer"
         >
-            Gebouwd door <span className="sr-only">EF2 (opent in een nieuw venster)</span>
+            {label} <span className="sr-only">{screenReader}</span>
             <svg
                 className={classNames('fill-current	 not-sr-only ml-3')}
                 width="30"

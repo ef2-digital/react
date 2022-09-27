@@ -15,3 +15,9 @@ export const Default = Template.bind({});
 
 export const Primary = Template.bind({});
 Primary.args = { ...Default.args, className: 'text-primary hover:text-primary-600' };
+
+export const Mixed = Template.bind({});
+Mixed.args = { ...Default.args, className: '[&>svg]:fill-primary' };
+
+export const Label = Template.bind({});
+Label.args = { ...Default.args, label: 'Ontwerp door', screenReader: 'EF3' };
