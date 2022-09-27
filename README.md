@@ -18,6 +18,66 @@ Documentation: [Storybook](https://ef2-digital.github.io/react).
 ## Quick start
 Here's a quick example to get you started. Add `ThemeProvider` to the top level of your app.
 
+Tailwind:
+
+```sh
+yarn add -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+```js
+// tailwind.config.js
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: [
+        './pages/**/*.{js,ts,jsx,tsx}',
+        './components/**/*.{js,ts,jsx,tsx}',
+        './node_modules/@ef2-digital/react/lib/**/*.js'
+    ],
+}
+```
+> :exclamation: The library defaults to two colors: "primary" and "secondary". Make sure to add them with [Tailwind shades](https://www.tailwindshades.com/) to your tailwind config.
+
+```js
+// tailwind.config.js
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    theme: {
+        colors: {
+            white: '#ffffff',
+            transparent: 'transparent',
+            primary: {
+                DEFAULT: '#FF7A00',
+                50: '#FFAA5C',
+                100: '#FFA552',
+                200: '#FF9A3D',
+                300: '#FF8F29',
+                400: '#FF8514',
+                500: '#FF7A00',
+                600: '#EB7000',
+                700: '#D66600',
+                800: '#C25D00',
+                900: '#AD5300'
+            },
+            secondary: {
+                DEFAULT: '#00212D',
+                50: '#006489',
+                100: '#005D7F',
+                200: '#004E6A',
+                300: '#003F56',
+                400: '#003041',
+                500: '#00212D',
+                600: '#001219',
+                700: '#000304',
+                800: '#000000',
+                900: '#000000'
+            }
+        },
+    },
+}
+```
+
 React:
 ```js
 // App.js
