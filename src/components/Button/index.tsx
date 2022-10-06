@@ -1,7 +1,8 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, ReactNode } from 'react';
 import classNames from 'classnames';
 import { useThemeContext } from '../ThemeProvider';
 import { getAttributeClasses, getAttributeVariantClasses } from '../../utils/theme';
+import Icon from '../Icon';
 
 type Attributes = AnchorHTMLAttributes<HTMLAnchorElement> & ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -12,9 +13,22 @@ export interface ButtonProps extends Attributes {
     children: string;
     size?: string;
     rounded?: boolean;
+    startIcon?: string;
+    endIcon?: string;
 }
 
-const Button = ({ as: Tag = 'button', children, variant, color = 'primary', size, rounded, className, ...props }: ButtonProps) => {
+const Button = ({
+    as: Tag = 'button',
+    children,
+    variant,
+    color = 'primary',
+    size,
+    rounded,
+    className,
+    startIcon,
+    endIcon,
+    ...props
+}: ButtonProps) => {
     const {
         theme: { button }
     } = useThemeContext();
@@ -31,7 +45,9 @@ const Button = ({ as: Tag = 'button', children, variant, color = 'primary', size
             )}
             {...props}
         >
+            {startIcon && <Icon className="mr-2" name={startIcon} />}
             {children}
+            {endIcon && <Icon className="ml-2" name={endIcon} />}
         </Tag>
     );
 };

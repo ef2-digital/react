@@ -21,7 +21,7 @@ const Copyright = ({
         >
             {label} <span className="sr-only">{screenReader}</span>
             <svg
-                className={classNames('fill-current	 not-sr-only ml-3')}
+                className={classNames('fill-current	not-sr-only ml-3')}
                 width="30"
                 height="33"
                 viewBox="0 0 30 33"

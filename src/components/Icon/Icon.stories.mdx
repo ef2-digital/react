@@ -1,0 +1,50 @@
+import { Meta, Story, Canvas, Source, ArgsTable, IconGallery, IconItem } from '@storybook/addon-docs';
+import Icon from '.';
+import dedent from 'ts-dedent';
+
+<Meta title="Display/Icon" component={Icon} />
+
+# Icon
+
+export const Template = (props) => <Icon {...props} />;
+
+## Default icons
+
+<IconGallery>
+    <IconItem name="bed">
+        <Icon name="bed" />
+    </IconItem>
+    <IconItem name="scene">
+        <Icon name="scene" />
+    </IconItem>
+    <IconItem name="cooking">
+        <Icon name="cooking" />
+    </IconItem>
+</IconGallery>
+
+```tsx
+import { Icon } from @ef2-digital/react
+
+<Icon name="bed" />
+```
+
+## Add Icons
+To add more icons, use the theme provider.
+
+### Next.js
+```tsx
+// theme.ts
+import { PartialTheme } from '@ef2-digital/react';
+import HomePin from '!@svgr/webpack!@material-symbols/svg-600/rounded/home_pin.svg';
+
+const theme: PartialTheme = {
+    homePin: HomePin
+};
+
+export default theme;
+```
+```tsx
+// Inside a component of your choose
+
+<Icon name="homePin"/>
+```

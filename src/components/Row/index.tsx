@@ -1,8 +1,7 @@
-import React from 'react';
 import classNames from 'classnames';
 import { forwardRef, PropsWithChildren } from 'react';
 
-interface RowProps extends PropsWithChildren {
+export interface RowProps extends PropsWithChildren {
     className?: string;
 }
 

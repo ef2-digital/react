@@ -3,7 +3,7 @@ import { Button } from './types';
 const button: Button = {
     variant: {
         DEFAULT: {
-            BASE: 'inline-flex items-center rounded-md text-white shadow-sm focus:outline-dashed focus:outline-1 focus:outline-offset-4',
+            BASE: '[&>svg]:fill-current inline-flex items-center rounded-md text-white shadow-sm focus:outline-dashed focus:outline-1 focus:outline-offset-4',
             primary: 'bg-primary hover:bg-primary-700 focus:outline-primary',
             secondary: 'bg-secondary hover:bg-secondary-700 focus:outline-secondary'
         },

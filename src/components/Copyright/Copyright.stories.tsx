@@ -2,7 +2,7 @@ import Copyright from '.';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
-    title: 'Copyright',
+    title: 'Display/Copyright',
     component: Copyright,
     parameters: {
         backgrounds: { default: 'dark' }

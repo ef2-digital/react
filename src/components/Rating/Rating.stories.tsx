@@ -21,13 +21,23 @@ const Template: ComponentStory<typeof Rating> = ({ ...props }) => {
         <Rating
             {...props}
             value={value}
-            onChange={(value) => {
-                props.onChange(value);
-                setValue(value);
-            }}
+            onChange={
+                props.readOnly
+                    ? undefined
+                    : (value) => {
+                          props.onChange && props.onChange(value);
+                          setValue(value);
+                      }
+            }
         />
     );
 };
 
 export const Default = Template.bind({});
-Default.args = { value: 3 };
+Default.args = { value: 3, readOnly: false };
+
+export const Primary = Template.bind({});
+Primary.args = { ...Default.args, classNameActive: '!fill-primary', classNameEmpty: '!fill-primary' };
+
+export const ReadOnly = Template.bind({});
+ReadOnly.args = { ...Default.args, readOnly: true };
