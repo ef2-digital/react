@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, ReactNode } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
 import classNames from 'classnames';
 import { useThemeContext } from '../ThemeProvider';
 import { getAttributeClasses, getAttributeVariantClasses } from '../../utils/theme';
@@ -17,39 +17,31 @@ export interface ButtonProps extends Attributes {
     endIcon?: string;
 }
 
-const Button = ({
-    as: Tag = 'button',
-    children,
-    variant,
-    color = 'primary',
-    size,
-    rounded,
-    className,
-    startIcon,
-    endIcon,
-    ...props
-}: ButtonProps) => {
-    const {
-        theme: { button }
-    } = useThemeContext();
+const Button = forwardRef<HTMLElement, ButtonProps>(
+    ({ as: Tag = 'button', children, variant, color = 'primary', size, rounded, className, startIcon, endIcon, ...props }, ref) => {
+        const {
+            theme: { button }
+        } = useThemeContext();
 
-    return (
-        <Tag
-            className={classNames(
-                getAttributeVariantClasses(button.variant, variant, color),
-                getAttributeClasses(button.size, size),
-                {
-                    'rounded-full': rounded
-                },
-                className
-            )}
-            {...props}
-        >
-            {startIcon && <Icon className="mr-2" name={startIcon} />}
-            {children}
-            {endIcon && <Icon className="ml-2" name={endIcon} />}
-        </Tag>
-    );
-};
+        return (
+            <Tag
+                ref={ref}
+                className={classNames(
+                    getAttributeVariantClasses(button.variant, variant, color),
+                    getAttributeClasses(button.size, size),
+                    {
+                        'rounded-full': rounded
+                    },
+                    className
+                )}
+                {...props}
+            >
+                {startIcon && <Icon className="mr-2" name={startIcon} />}
+                {children}
+                {endIcon && <Icon className="ml-2" name={endIcon} />}
+            </Tag>
+        );
+    }
+);
 
 export default Button;
