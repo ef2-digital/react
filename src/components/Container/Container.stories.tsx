@@ -1,4 +1,3 @@
-import React from 'react';
 import Container from '.';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Row from '../Row';
