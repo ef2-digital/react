@@ -7,6 +7,7 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-docs',
         '@storybook/addon-interactions',
+        '@storybook/addon-a11y',
         {
             name: '@storybook/addon-postcss',
             options: {

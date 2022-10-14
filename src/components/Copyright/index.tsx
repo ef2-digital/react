@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export interface CopyrightProps {
     className?: string;
@@ -7,11 +8,9 @@ export interface CopyrightProps {
     screenReader?: string;
 }
 
-const Copyright = ({
-    className,
-    label = 'Gebouwd door',
-    screenReader = 'EF2 (opent in een nieuw venster)'
-}: PropsWithChildren<CopyrightProps>) => {
+const Copyright = ({ className, label, screenReader }: PropsWithChildren<CopyrightProps>) => {
+    const { t } = useTranslation();
+
     return (
         <a
             className={classNames('text-white inline-flex items-center hover:underline', className)}
@@ -19,7 +18,7 @@ const Copyright = ({
             target="_blank"
             rel="noreferrer"
         >
-            {label} <span className="sr-only">{screenReader}</span>
+            {label ?? t('copyright')} <span className="sr-only">{screenReader ?? `EF2 ${t('newWindow')}`}</span>
             <svg
                 className={classNames('fill-current	not-sr-only ml-3')}
                 width="30"

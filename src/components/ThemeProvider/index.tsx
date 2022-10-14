@@ -4,14 +4,26 @@ import { DeepPartial, Theme } from '../../theme/types';
 import defaultTheme from '../../theme';
 import { cloneDeep, isString, mergeWith } from 'lodash-es';
 import { twMerge } from 'tailwind-merge';
+import i18next, { i18n } from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import Backend from 'i18next-http-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+i18next
+    .use(Backend)
+    .use(LanguageDetector)
+    .use(initReactI18next)
+    .init({ fallbackLng: 'en', defaultNS: 'common', resources: defaultTheme.localization });
 
 // Context.
 interface ThemeContextValue {
-    theme: Theme;
+    theme: Theme; 
+    i18n: i18n;
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
-    theme: defaultTheme
+    theme: defaultTheme,
+    i18n: i18next
 });
 
 export const useThemeContext = () => {
@@ -23,6 +35,7 @@ export type PartialTheme = DeepPartial<Theme>;
 // Provider.
 export interface ThemeProviderProps {
     theme?: PartialTheme;
+    i18n: i18n;
 }
 
 const mergeTheme = (defaultTheme: Theme, theme?: PartialTheme): Theme => {
@@ -37,10 +50,10 @@ const mergeTheme = (defaultTheme: Theme, theme?: PartialTheme): Theme => {
     });
 };
 
-const ThemeProvider = ({ theme: initialTheme, children }: PropsWithChildren<ThemeProviderProps>) => {
+const ThemeProvider = ({ theme: initialTheme, i18n, children }: PropsWithChildren<ThemeProviderProps>) => {
     const theme = mergeTheme(defaultTheme, initialTheme);
 
-    return <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>;
+    return <ThemeContext.Provider value={{ theme, i18n }}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeProvider;
