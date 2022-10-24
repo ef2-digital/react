@@ -17,6 +17,15 @@ export interface Toggle {
     variant: Attribute<Variant>;
 }
 
+export interface Copyright {
+    variant: Attribute<Variant>;
+}
+
+export interface Modal {
+    overlay: Attribute;
+    variant: Attribute<Variant>;
+}
+
 export interface Rating {
     active: Attribute<Variant>;
     empty: Attribute<Variant>;
@@ -46,6 +55,8 @@ export interface Theme {
     rating: Rating;
     icon: Icon;
     localization: Resource;
+    copyright: Copyright;
+    modal: Modal;
 }
 
 export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;

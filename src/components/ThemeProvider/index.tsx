@@ -1,11 +1,11 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, useEffect } from 'react';
 import { createContext, useContext } from 'react';
 import { DeepPartial, Theme } from '../../theme/types';
 import defaultTheme from '../../theme';
 import { cloneDeep, isString, mergeWith } from 'lodash-es';
 import { twMerge } from 'tailwind-merge';
 import i18next, { i18n } from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import { I18nextProvider, initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
@@ -17,13 +17,12 @@ i18next
 
 // Context.
 interface ThemeContextValue {
-    theme: Theme; 
-    i18n: i18n;
+    theme: Theme;
+    lng?: string;
 }
 
 const ThemeContext = createContext<ThemeContextValue>({
-    theme: defaultTheme,
-    i18n: i18next
+    theme: defaultTheme
 });
 
 export const useThemeContext = () => {
@@ -35,7 +34,8 @@ export type PartialTheme = DeepPartial<Theme>;
 // Provider.
 export interface ThemeProviderProps {
     theme?: PartialTheme;
-    i18n: i18n;
+    i18n?: i18n;
+    lng?: string;
 }
 
 const mergeTheme = (defaultTheme: Theme, theme?: PartialTheme): Theme => {
@@ -50,10 +50,18 @@ const mergeTheme = (defaultTheme: Theme, theme?: PartialTheme): Theme => {
     });
 };
 
-const ThemeProvider = ({ theme: initialTheme, i18n, children }: PropsWithChildren<ThemeProviderProps>) => {
+const ThemeProvider = ({ theme: initialTheme, lng, i18n = i18next, children }: PropsWithChildren<ThemeProviderProps>) => {
     const theme = mergeTheme(defaultTheme, initialTheme);
 
-    return <ThemeContext.Provider value={{ theme, i18n }}>{children}</ThemeContext.Provider>;
+    useEffect(() => {
+        i18n.changeLanguage(lng);
+    }, [i18n, lng]);
+
+    return (
+        <I18nextProvider i18n={i18n}>
+            <ThemeContext.Provider value={{ theme, lng }}>{children}</ThemeContext.Provider>
+        </I18nextProvider>
+    );
 };
 
 export default ThemeProvider;

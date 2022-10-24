@@ -1,6 +1,5 @@
 import '../src/styles.css';
-import ThemeProvider, { useThemeContext } from '../src/components/ThemeProvider';
-import { useEffect } from 'react';
+import ThemeProvider from '../src/components/ThemeProvider';
 
 export const globalTypes = {
     locale: {
@@ -19,14 +18,14 @@ export const globalTypes = {
 
 export const decorators = [
     (Story, context) => {
-        const locale = context.globals.locale;
-        const { i18n } = useThemeContext();
+        const langGlobal = context.globals.locale;
+        const langComponent = context.args?.lng;
 
-        useEffect(() => {
-            i18n.changeLanguage(locale);
-        }, [i18n, locale]);
+        if (context.componentId === 'themeprovider') {
+            return <>{Story()}</>;
+        }
 
-        return <ThemeProvider>{Story()}</ThemeProvider>;
+        return <ThemeProvider lng={langComponent ?? langGlobal}>{Story()}</ThemeProvider>;
     }
 ];
 

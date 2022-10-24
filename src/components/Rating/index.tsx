@@ -80,14 +80,13 @@ const Rating = ({
                             />
                             <label htmlFor={id}>
                                 <span className="sr-only">{t('rating.star', { count: starValue })}</span>
-                                <svg
+                                <span
                                     aria-hidden
-                                    className={classNames({ 'hover:scale-125 hover:cursor-pointer transition-[transform]': !readOnly })}
+                                    className={classNames({
+                                        'd-flex hover:scale-125 hover:cursor-pointer transition-[transform]': !readOnly
+                                    })}
                                     onMouseEnter={() => !readOnly && setHover(starValue)}
                                     onMouseLeave={() => !readOnly && setHover(value)}
-                                    width={24}
-                                    height={24}
-                                    viewBox="0 0 24 24"
                                 >
                                     {active ? (
                                         <Icon
@@ -103,7 +102,7 @@ const Rating = ({
                                             className={classNames(getAttributeVariantClasses(rating.empty, variant, color), classNameEmpty)}
                                         />
                                     )}
-                                </svg>
+                                </span>
                             </label>
                         </Fragment>
                     );

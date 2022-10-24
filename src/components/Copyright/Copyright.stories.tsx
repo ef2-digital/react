@@ -12,6 +12,7 @@ export default {
 const Template: ComponentStory<typeof Copyright> = ({ ...props }) => <Copyright {...props} />;
 
 export const Default = Template.bind({});
+Default.args = { label: undefined };
 
 export const Primary = Template.bind({});
 Primary.args = { ...Default.args, className: 'text-primary hover:text-primary-600' };

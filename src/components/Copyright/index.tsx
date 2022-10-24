@@ -1,24 +1,35 @@
 import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getAttributeVariantClasses } from '../../utils/theme';
+import { useThemeContext } from '../ThemeProvider';
 
 export interface CopyrightProps {
     className?: string;
     label?: string;
     screenReader?: string;
+    color?: string;
+    variant?: string;
 }
 
-const Copyright = ({ className, label, screenReader }: PropsWithChildren<CopyrightProps>) => {
+const Copyright = ({ className, label, variant, color, screenReader }: PropsWithChildren<CopyrightProps>) => {
     const { t } = useTranslation();
+    const {
+        theme: { copyright }
+    } = useThemeContext();
+
+    // [&>svg]:fill-primary
+
+    
 
     return (
         <a
-            className={classNames('text-white inline-flex items-center hover:underline', className)}
+            className={classNames(getAttributeVariantClasses(copyright.variant, variant, color), className)}
             href="https://ef2.nl/"
             target="_blank"
             rel="noreferrer"
         >
-            {label ?? t('copyright')} <span className="sr-only">{screenReader ?? `EF2 ${t('newWindow')}`}</span>
+            <span>{label || t('copyright')} <span className="sr-only">{screenReader ?? `EF2 ${t('newWindow')}`}</span></span>
             <svg
                 className={classNames('fill-current	not-sr-only ml-3')}
                 width="30"

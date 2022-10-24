@@ -4,13 +4,13 @@ const rating: Rating = {
     active: {
         DEFAULT: {
             BASE: '',
-            primary: 'fill-[#FACC15]'
+            primary: 'fill-yellow-400'
         }
     },
     empty: {
         DEFAULT: {
             BASE: '',
-            primary: 'fill-[#D1D5DB]'
+            primary: 'fill-gray-300'
         }
     }
 };

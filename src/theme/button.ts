@@ -3,14 +3,14 @@ import { Button } from './types';
 const button: Button = {
     variant: {
         DEFAULT: {
-            BASE: '[&>svg]:fill-current inline-flex items-center rounded-md text-white shadow-sm focus:outline-dashed focus:outline-1 focus:outline-offset-4',
-            primary: 'bg-primary hover:bg-primary-700 focus:outline-primary',
-            secondary: 'bg-secondary hover:bg-secondary-700 focus:outline-secondary'
+            BASE: '[&>svg]:fill-current inline-flex justify-center items-center rounded border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-indigo-500',
+            primary: 'text-white bg-indigo-600 hover:bg-indigo-700',
+            secondary: 'text-indigo-700 bg-indigo-100 hover:bg-indigo-200'
         },
         outline: {
-            BASE: 'inline-flex items-center rounded-md border bg-white px-4 hover:bg-gray-100 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2',
-            primary: 'border-primary-300 text-primary-700',
-            secondary: 'border-secondary-300 text-secondary-700'
+            BASE: 'inline-flex items-center rounded border bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-gray-50',
+            primary: 'border-indigo-600 text-indigo-600 focus:ring-indigo-500',
+            secondary: 'border-indigo-100 text-indigo-600 focus:ring-indigo-100'
         }
     },
     size: {

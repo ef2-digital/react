@@ -6,7 +6,18 @@ import dedent from 'ts-dedent';
 
 # Icon
 
-export const Template = (props) => <Icon {...props} />;
+export const Template = (args) => <Icon {...args} />;
+
+<Canvas>
+    <Story
+        name="Default"
+        args={{
+            name: 'bed'
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
 
 ## Default icons
 
@@ -35,9 +46,11 @@ import { Icon } from @ef2-digital/react
 ```
 
 ## Add Icons
+
 To add more icons, use the theme provider.
 
 ### Next.js
+
 ```tsx
 // theme.ts
 import { PartialTheme } from '@ef2-digital/react';
@@ -49,8 +62,9 @@ const theme: PartialTheme = {
 
 export default theme;
 ```
+
 ```tsx
 // Inside a component of your choose
 
-<Icon name="homePin"/>
+<Icon name="homePin" />
 ```

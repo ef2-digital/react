@@ -3,6 +3,8 @@ import toggle from './toggle';
 import icon from './icon';
 import localization from './localization';
 import rating from './rating';
+import copyright from './copyright';
+import modal from './modal';
 import { Theme } from './types';
 
 const theme: Theme = {
@@ -10,7 +12,9 @@ const theme: Theme = {
     toggle,
     icon,
     rating,
-    localization
+    localization,
+    copyright,
+    modal
 };
 
 export default theme;

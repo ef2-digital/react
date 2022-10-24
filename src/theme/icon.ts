@@ -6,6 +6,7 @@ import Star from '@material-symbols/svg-600/rounded/star.svg';
 import StarFill from '@material-symbols/svg-600/rounded/star-fill.svg';
 import Favorite from '@material-symbols/svg-600/rounded/favorite.svg';
 import FavoriteFill from '@material-symbols/svg-600/rounded/favorite-fill.svg';
+import Done from '@material-symbols/svg-600/rounded/done.svg';
 
 const icon: Icon = {
     cooking: Cooking,
@@ -14,7 +15,8 @@ const icon: Icon = {
     star: Star,
     starFill: StarFill,
     favorite: Favorite,
-    favoriteFill: FavoriteFill
+    favoriteFill: FavoriteFill,
+    done: Done,
 };
 
 export default icon;

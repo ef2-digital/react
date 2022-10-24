@@ -1,37 +1,21 @@
 import Rating from '.';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { useState } from 'react';
 import ThemeProvider from '../ThemeProvider';
+import { useArgs } from '@storybook/client-api';
 
 export default {
     title: 'Input/Rating',
-    component: Rating,
-    argTypes: {
-        value: {
-            control: {
-                disable: true
-            }
-        }
-    }
+    component: Rating
 } as ComponentMeta<typeof Rating>;
 
 const Template: ComponentStory<typeof Rating> = ({ ...props }) => {
-    const [value, setValue] = useState<number>(props.value ?? 1);
+    const [{ value }, updateArgs] = useArgs();
 
-    return (
-        <Rating
-            {...props}
-            value={value}
-            onChange={
-                props.readOnly
-                    ? undefined
-                    : (value) => {
-                          props.onChange && props.onChange(value);
-                          setValue(value);
-                      }
-            }
-        />
-    );
+    const handleOnChange = (value: number) => {
+        updateArgs({ value });
+    };
+
+    return <Rating {...props} value={value} onChange={handleOnChange} />;
 };
 
 export const Default = Template.bind({});
@@ -46,12 +30,12 @@ Theme.decorators = [
                 rating: {
                     active: {
                         DEFAULT: {
-                            primary: 'fill-[#FF7A00]'
+                            primary: 'fill-emerald-500'
                         }
                     },
                     empty: {
                         DEFAULT: {
-                            primary: 'fill-[#FF7A00]'
+                            primary: 'fill-emerald-500'
                         }
                     }
                 }
@@ -78,7 +62,7 @@ Icon.decorators = [
                 rating: {
                     active: {
                         DEFAULT: {
-                            primary: 'fill-[#FF528C]'
+                            primary: 'fill-red-400'
                         }
                     }
                 }
