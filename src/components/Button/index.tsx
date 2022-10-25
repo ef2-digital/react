@@ -27,7 +27,7 @@ const Button = forwardRef<HTMLElement, ButtonProps>(
             <Tag
                 ref={ref}
                 className={classNames(
-                    getAttributeVariantClasses(button.variant, variant, color),
+                    getAttributeVariantClasses(button.VARIANT, variant, color),
                     getAttributeClasses(button.size, size),
                     {
                         'rounded-full': rounded

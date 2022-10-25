@@ -1,7 +1,6 @@
 import Button from './';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Icon from '../Icon';
-// import Clean from '@material-symbols/svg-600/rounded/clean_hands.svg';
 
 export default {
     title: 'Input/Button',

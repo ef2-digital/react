@@ -61,7 +61,7 @@ const Rating = ({
             })}
         >
             <legend className="sr-only">{t('rating.rating')}</legend>
-            <div className="flex">
+            <div className={classNames(getAttributeVariantClasses(rating.VARIANT, variant, color), classNameEmpty)}>
                 {Array.from(Array(STARS).keys()).map((index) => {
                     const starValue = index + 1;
                     const active = Math.round(hover) > index;

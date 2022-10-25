@@ -2,5 +2,5 @@
 module.exports = {
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
     theme: {},
-    plugins: []
+    plugins: [require('@tailwindcss/forms'), require('@headlessui/tailwindcss')]
 };

@@ -49,7 +49,7 @@ const Modal = ({ open, onClose, className, variant, color, children }: PropsWith
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <Dialog.Panel
-                                className={classNames(classNames(getAttributeVariantClasses(modal.variant, variant, color), className))}
+                                className={classNames(classNames(getAttributeVariantClasses(modal.VARIANT, variant, color), className))}
                             >
                                 {children}
                             </Dialog.Panel>

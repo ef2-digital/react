@@ -5,6 +5,7 @@ import localization from './localization';
 import rating from './rating';
 import copyright from './copyright';
 import modal from './modal';
+import formControl from './formControl';
 import { Theme } from './types';
 
 const theme: Theme = {
@@ -14,7 +15,8 @@ const theme: Theme = {
     rating,
     localization,
     copyright,
-    modal
+    modal,
+    formControl
 };
 
 export default theme;

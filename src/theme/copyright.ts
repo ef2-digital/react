@@ -1,7 +1,7 @@
 import { Copyright } from './types';
 
 const copyright: Copyright = {
-    variant: {
+    VARIANT: {
         DEFAULT: {
             BASE: 'inline-flex items-center hover:underline',
             primary: 'text-white'

@@ -4,29 +4,31 @@ import { ElementType } from 'react';
 export type Attribute<T = string> = { DEFAULT: T; [key: string]: T };
 export type Variant = { BASE: string; primary: string; [key: string]: string };
 
-export interface Button {
-    variant: Attribute<Variant>;
-    size: Attribute;
+export interface Component {
+    VARIANT: Attribute<Variant>;
 }
 
 export interface Icon {
     [key: string]: ElementType;
 }
 
-export interface Toggle {
-    variant: Attribute<Variant>;
+export interface Button extends Component {
+    size: Attribute;
 }
 
-export interface Copyright {
-    variant: Attribute<Variant>;
+export interface Toggle extends Component {
+    slider: Attribute<Variant>;
+    label: Attribute<Variant>;
 }
 
-export interface Modal {
+export interface Copyright extends Component {}
+export interface FormControl extends Component {}
+
+export interface Modal extends Component {
     overlay: Attribute;
-    variant: Attribute<Variant>;
 }
 
-export interface Rating {
+export interface Rating extends Component {
     active: Attribute<Variant>;
     empty: Attribute<Variant>;
 }
@@ -57,6 +59,7 @@ export interface Theme {
     localization: Resource;
     copyright: Copyright;
     modal: Modal;
+    formControl: FormControl
 }
 
 export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;

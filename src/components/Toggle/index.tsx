@@ -1,48 +1,32 @@
-import { Disclosure } from '@headlessui/react';
-import classNames from 'classnames';
-import { forwardRef } from 'react';
+import { Switch } from '@headlessui/react';
 import { getAttributeVariantClasses } from '../../utils/theme';
 import { useThemeContext } from '../ThemeProvider';
 
 export interface ToggleProps {
-    open: boolean;
-    variant?: string;
+    checked?: boolean;
+    onChange?: (checked: boolean) => void;
+    label?: string;
+    screenReader?: string;
     color?: string;
-    className?: string;
+    variant?: string;
 }
 
-const Toggle = forwardRef<HTMLButtonElement, ToggleProps>(({ open, variant, color, className }, ref) => {
+const Toggle = ({ checked, onChange, label, variant, color, screenReader }: ToggleProps) => {
     const {
         theme: { toggle }
     } = useThemeContext();
 
     return (
-        <Disclosure.Button ref={ref} className={classNames(getAttributeVariantClasses(toggle.variant, variant, color), className)}>
-            <span className="sr-only">Open hoofdmenu</span>
-            <span
-                aria-hidden
-                className={classNames('absolute h-0.5 w-5 transform bg-white transition duration-300', {
-                    'rotate-45': open,
-                    '-translate-y-1.5': !open
-                })}
-            />
-            <span
-                aria-hidden
-                className={classNames('absolute h-0.5 w-5 transform bg-white transition duration-300', {
-                    'opacity-0': open
-                })}
-            />
-            <span
-                aria-hidden
-                className={classNames('absolute h-0.5 w-5 transform bg-white transition duration-300', {
-                    '-rotate-45': open,
-                    'translate-y-1.5': !open
-                })}
-            />
-        </Disclosure.Button>
+        <Switch.Group>
+            <div className="flex items-center">
+                {label && <Switch.Label className={getAttributeVariantClasses(toggle.label, variant, color)}>{label}</Switch.Label>}
+                <Switch className={getAttributeVariantClasses(toggle.VARIANT, variant, color)} checked={checked} onChange={onChange}>
+                    {screenReader && <span className="sr-only">{screenReader}</span>}
+                    <span className={getAttributeVariantClasses(toggle.slider, variant, color)} />
+                </Switch>
+            </div>
+        </Switch.Group>
     );
-});
-
-Toggle.displayName = 'Toggle';
+};
 
 export default Toggle;

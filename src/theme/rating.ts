@@ -1,6 +1,12 @@
 import { Rating } from './types';
 
 const rating: Rating = {
+    VARIANT: {
+        DEFAULT: {
+            BASE: 'flex',
+            primary: ''
+        }
+    },
     active: {
         DEFAULT: {
             BASE: '',

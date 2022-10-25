@@ -37,6 +37,12 @@ export const Template = (args) => <Icon {...args} />;
     <IconItem name="starFill">
         <Icon name="starFill" />
     </IconItem>
+    <IconItem name="warning">
+        <Icon name="warning" />
+    </IconItem>
+    <IconItem name="done">
+        <Icon name="done" />
+    </IconItem>
 </IconGallery>
 
 ```tsx
@@ -64,7 +70,16 @@ export default theme;
 ```
 
 ```tsx
-// Inside a component of your choose
+// Inside a component.
 
 <Icon name="homePin" />
 ```
+
+### Color
+```tsx
+<Icon name="homePin" className="fill-green-600" />
+```
+
+<IconItem name="starFill">
+    <Icon name="starFill" className="fill-green-600" />
+</IconItem>
