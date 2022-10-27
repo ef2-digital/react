@@ -20,7 +20,7 @@ const Toggle = ({ checked, onChange, label, variant, color, screenReader }: Togg
         <Switch.Group>
             <div className="flex items-center">
                 {label && <Switch.Label className={getAttributeVariantClasses(toggle.label, variant, color)}>{label}</Switch.Label>}
-                <Switch className={getAttributeVariantClasses(toggle.VARIANT, variant, color)} checked={checked} onChange={onChange}>
+                <Switch className={getAttributeVariantClasses(toggle.variant, variant, color)} checked={checked} onChange={onChange}>
                     {screenReader && <span className="sr-only">{screenReader}</span>}
                     <span className={getAttributeVariantClasses(toggle.slider, variant, color)} />
                 </Switch>

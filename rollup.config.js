@@ -33,5 +33,6 @@ export default {
         postcss({
             extensions: ['.css']
         })
-    ]
+    ],
+    external: ['tr46']
 };

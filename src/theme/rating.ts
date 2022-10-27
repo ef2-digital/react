@@ -1,21 +1,21 @@
 import { Rating } from './types';
 
 const rating: Rating = {
-    VARIANT: {
+    variant: {
         DEFAULT: {
-            BASE: 'flex',
+            DEFAULT: 'flex',
             primary: ''
         }
     },
     active: {
         DEFAULT: {
-            BASE: '',
+            DEFAULT: '',
             primary: 'fill-yellow-400'
         }
     },
     empty: {
         DEFAULT: {
-            BASE: '',
+            DEFAULT: '',
             primary: 'fill-gray-300'
         }
     }

@@ -22,7 +22,7 @@ const FormControl = ({ variant, color, className, type = 'text', ...props }: For
             <input
                 {...props}
                 type={type}
-                className={classNames(getAttributeVariantClasses(formControl.VARIANT, variant, color), className)}
+                className={classNames(getAttributeVariantClasses(formControl.variant, variant, color), className)}
             />
         </div>
     );

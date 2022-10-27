@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import classNames from 'classnames';
 import { Fragment, PropsWithChildren } from 'react';
-import { getAttributeClasses, getAttributeVariantClasses, getVariantClasses } from '../../utils/theme';
+import { getAttributeClasses, getAttributeVariantClasses } from '../../utils/theme';
 import { useThemeContext } from '../ThemeProvider';
 
 export interface ModalProps {
@@ -49,7 +49,7 @@ const Modal = ({ open, onClose, className, variant, color, children }: PropsWith
                             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                         >
                             <Dialog.Panel
-                                className={classNames(classNames(getAttributeVariantClasses(modal.VARIANT, variant, color), className))}
+                                className={classNames(classNames(getAttributeVariantClasses(modal.variant, variant, color), className))}
                             >
                                 {children}
                             </Dialog.Panel>

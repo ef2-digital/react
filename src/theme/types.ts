@@ -2,10 +2,10 @@ import { ResourceKey } from 'i18next';
 import { ElementType } from 'react';
 
 export type Attribute<T = string> = { DEFAULT: T; [key: string]: T };
-export type Variant = { BASE: string; primary: string; [key: string]: string };
+export type Variant = { DEFAULT: string; primary: string; [key: string]: string };
 
 export interface Component {
-    VARIANT: Attribute<Variant>;
+    variant: Attribute<Variant>;
 }
 
 export interface Icon {

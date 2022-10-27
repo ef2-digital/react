@@ -78,20 +78,18 @@ By default all EF2 components lorem ipsum dolor sit amet, consectetur adipiscing
 ### Theme structure
 ```typescript
 export type Attribute<T = string> = { DEFAULT: T; [key: string]: T };
-export type Variant = { BASE: string; primary: string; [key: string]: string };
+export type Variant = { DEFAULT: string; primary: string; [key: string]: string };
 
-export interface Button {
+export interface Component {
     variant: Attribute<Variant>;
-    size: Attribute;
 }
 
-export interface Toggle {
-    variant: Attribute<Variant>;
+export interface Button extends Component {
+    size: Attribute;
 }
 
 export interface Theme {
     button: Button;
-    toggle: Toggle;
     // ... other components.
 }
 ```
