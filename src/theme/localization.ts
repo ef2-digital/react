@@ -10,6 +10,7 @@ const resources: Resource = {
             }
         },
         common: {
+            close: 'Close',
             copyright: 'Built by',
             newWindow: '(opens in new window)'
         }
@@ -23,6 +24,7 @@ const resources: Resource = {
             }
         },
         common: {
+            close: 'Sluiten',
             copyright: 'Gebouwd door',
             newWindow: '(opent in een nieuw venster)'
         }

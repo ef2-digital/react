@@ -3,9 +3,9 @@ import { Button } from './types';
 const button: Button = {
     variant: {
         DEFAULT: {
-            DEFAULT: '[&>svg]:fill-current inline-flex justify-center items-center rounded border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-indigo-500',
-            primary: 'text-white bg-indigo-600 hover:bg-indigo-700',
-            secondary: 'text-indigo-700 bg-indigo-100 hover:bg-indigo-200'
+            DEFAULT: '[&>svg]:fill-current inline-flex justify-center items-center rounded border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2',
+            primary: 'text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500',
+            secondary: 'text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:ring-indigo-500'
         },
         outline: {
             DEFAULT: 'inline-flex items-center justify-center rounded border bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 hover:bg-gray-50',

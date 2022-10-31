@@ -13,7 +13,7 @@ const Icon = ({ className, name = 'cooking' }: IconProps) => {
     } = useThemeContext();
 
     // Render.
-    const Component = icon[name];
+    const Component = icon[name] ?? icon['cooking'];
 
     return <Component aria-hidden className={classNames(className)} width={24} height={24} viewBox="0 0 48 48" />;
 };

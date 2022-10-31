@@ -4,6 +4,7 @@ import Button from '../Button';
 import { useArgs } from '@storybook/client-api';
 import { Dialog } from '@headlessui/react';
 import Icon from '../Icon';
+import ThemeProvider from '../ThemeProvider';
 
 export default {
     title: 'Utils/Modal',
@@ -81,5 +82,43 @@ export const Alert: ComponentStory<typeof Modal> = ({ children, ...props }) => {
                 </div>
             </Modal>
         </>
+    );
+};
+
+export const Theming: ComponentStory<typeof Modal> = ({ children, ...props }) => {
+    const [{ open }, updateArgs] = useArgs();
+
+    const toggle = () => {
+        updateArgs({ open: !open });
+    };
+
+    return (
+        <ThemeProvider
+            theme={{
+                modal: {
+                    variant: {
+                        DEFAULT: { DEFAULT: 'rounded-none' }
+                    },
+                    overlay: { DEFAULT: 'bg-indigo-500/30' }
+                }
+            }}
+        >
+            <Button onClick={toggle}>Open modal</Button>
+            <Modal {...props} onClose={toggle}>
+                <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
+                    <button
+                        type="button"
+                        className="rounded-md bg-white  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        onClick={toggle}
+                    >
+                        <span className="sr-only">Close</span>
+                        <Icon className="fill-gray-400 hover:fill-gray-500" name="close" />
+                    </button>
+                </div>
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                    <Icon name="done" className="fill-green-600" />
+                </div>
+            </Modal>
+        </ThemeProvider>
     );
 };

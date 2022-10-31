@@ -8,6 +8,9 @@ import Favorite from '@material-symbols/svg-600/rounded/favorite.svg';
 import FavoriteFill from '@material-symbols/svg-600/rounded/favorite-fill.svg';
 import Done from '@material-symbols/svg-600/rounded/done.svg';
 import Warning from '@material-symbols/svg-600/rounded/warning.svg';
+import Close from '@material-symbols/svg-600/rounded/close.svg';
+import ExpandMore from '@material-symbols/svg-600/rounded/expand_more.svg';
+import ExpandLess from '@material-symbols/svg-600/rounded/expand_less.svg';
 
 const icon: Icon = {
     cooking: Cooking,
@@ -18,7 +21,10 @@ const icon: Icon = {
     favorite: Favorite,
     favoriteFill: FavoriteFill,
     done: Done,
-    warning: Warning
+    warning: Warning,
+    close: Close,
+    expandMore: ExpandMore,
+    expandLess: ExpandLess
 };
 
 export default icon;
