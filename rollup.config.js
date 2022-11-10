@@ -1,3 +1,4 @@
+import externals from 'rollup-plugin-node-externals'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -24,6 +25,7 @@ export default {
     ],
     plugins: [
         svgr(),
+        externals(),
         peerDepsExternal(),
         resolve(),
         commonjs(),
