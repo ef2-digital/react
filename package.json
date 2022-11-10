@@ -1,6 +1,6 @@
 {
   "name": "@ef2/react",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
