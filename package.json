@@ -1,13 +1,9 @@
 {
-  "name": "@ef2-digital/react",
+  "name": "@ef2/react",
   "version": "1.0.14",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ef2-digital/react.git"
-  },
   "files": [
     "src",
     "lib"
@@ -21,7 +17,7 @@
   },
   "author": "EF2",
   "license": "ISC",
-  "homepage": "https://github.com/ef2-digital/react",
+  "homepage": "https://www.npmjs.com/package/@ef2/react",
   "devDependencies": {
     "@apollo/client": "^3.6.9",
     "@babel/core": "^7.19.1",
@@ -51,6 +47,7 @@
     "autoprefixer": "^10.4.11",
     "babel-loader": "^8.2.5",
     "classnames": "^2.3.2",
+    "encoding": "^0.1.13",
     "gh-pages": "^4.0.0",
     "graphql": "^16.6.0",
     "i18next": "^21.10.0",

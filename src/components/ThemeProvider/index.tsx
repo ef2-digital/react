@@ -7,13 +7,6 @@ import { twMerge } from 'tailwind-merge';
 import i18next, { i18n } from 'i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
-
-i18next
-    .use(Backend)
-    .use(LanguageDetector)
-    .use(initReactI18next)
-    .init({ fallbackLng: 'en', defaultNS: 'common', resources: defaultTheme.localization });
 
 // Context.
 interface ThemeContextValue {
@@ -50,12 +43,11 @@ const mergeTheme = (defaultTheme: Theme, theme?: PartialTheme): Theme => {
     });
 };
 
-const ThemeProvider = ({ theme: initialTheme, lng, i18n = i18next, children }: PropsWithChildren<ThemeProviderProps>) => {
+const ThemeProvider = ({ theme: initialTheme, lng, i18n: initialI18n, children }: PropsWithChildren<ThemeProviderProps>) => {
     const theme = mergeTheme(defaultTheme, initialTheme);
+    const i18n = initialI18n ? initialI18n : i18next;
 
-    useEffect(() => {
-        i18n.changeLanguage(lng);
-    }, [i18n, lng]);
+    i18next.use(Backend).use(initReactI18next).init({ fallbackLng: 'nl', lng, defaultNS: 'common', resources: defaultTheme.localization });
 
     return (
         <I18nextProvider i18n={i18n}>

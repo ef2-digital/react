@@ -33,7 +33,7 @@ module.exports = {
         './theme.ts',
         './pages/**/*.{js,ts,jsx,tsx}',
         './components/**/*.{js,ts,jsx,tsx}',
-        './node_modules/@ef2-digital/react/lib/**/*.js'
+        './node_modules/@ef2/react/lib/**/*.js'
     ],
     plugins: [
         require('@headlessui/tailwindcss')
