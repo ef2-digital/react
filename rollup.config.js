@@ -34,5 +34,5 @@ export default {
             extensions: ['.css']
         })
     ],
-    external: ['tr46', 'encoding']
+    external: ['tr46', 'encoding', 'node-fetch']
 };
