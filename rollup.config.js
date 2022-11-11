@@ -34,5 +34,5 @@ export default {
             extensions: ['.css']
         })
     ],
-    external: ['tr46', 'encoding', 'node-fetch']
+    external: ['tr46', 'encoding', 'node-fetch', '@storybook/testing-library', '@storybook/react', '@storybook/manager-webpack5', '@storybook/builder-webpack5', '@storybook/addon-postcss', '@storybook/addon-links', '@storybook/addon-a11y', '@storybook/addon-actions', '@storybook/addon-docs', '@storybook/addon-essentials', '@storybook/addon-interactions']
 };
