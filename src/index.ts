@@ -1,3 +1,4 @@
+import 'client-only'
 import { Maybe } from './theme/types';
 import Button, { ButtonProps } from './components/Button';
 import ThemeProvider, { PartialTheme } from './components/ThemeProvider';

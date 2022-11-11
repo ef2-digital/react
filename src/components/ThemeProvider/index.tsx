@@ -1,5 +1,3 @@
-'use client';
-
 import { PropsWithChildren, useEffect } from 'react';
 import { createContext, useContext } from 'react';
 import { DeepPartial, Theme } from '../../theme/types';
