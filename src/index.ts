@@ -10,6 +10,7 @@ import FormControl from './components/FormControl';
 import Modal, { ModalProps } from './components/Modal';
 import Icon, { IconProps } from './components/Icon';
 import Rating, { RatingProps } from './components/Rating';
+import ScrollHeader, { ScrollHeaderProps } from './components/ScrollHeader';
 
-export type { ButtonProps, RowProps, PartialTheme, Maybe, ModalProps, IconProps, RatingProps, CopyrightProps };
-export { Button, ThemeProvider, Container, Row, Toggle, Copyright, Modal, FormControl, Icon, Rating };
+export type { ButtonProps, RowProps, PartialTheme, Maybe, ModalProps, IconProps, RatingProps, CopyrightProps, ScrollHeaderProps };
+export { Button, ThemeProvider, Container, Row, Toggle, Copyright, Modal, FormControl, Icon, Rating, ScrollHeader };
