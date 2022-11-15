@@ -1,8 +1,8 @@
-import {ReactNode, useCallback, useEffect, useState} from "react";
+import { ReactElement, useCallback, useEffect, useState } from 'react';
 import { throttle } from 'lodash-es';
 
 export interface ScrollHeaderProps {
-    children: ({ top }: { top: boolean }) => ReactNode;
+    children: ({ top }: { top: boolean }) => ReactElement;
 }
 
 const ScrollHeader = ({ children }: ScrollHeaderProps) => {
@@ -11,7 +11,7 @@ const ScrollHeader = ({ children }: ScrollHeaderProps) => {
     // Methods.
     const handleOnScroll = (_: Event) => {
         setTop(window.scrollY === 0);
-    }
+    };
 
     const handleOnScrollThrottled = useCallback(throttle(handleOnScroll, 100), [handleOnScroll]);
 
@@ -22,6 +22,6 @@ const ScrollHeader = ({ children }: ScrollHeaderProps) => {
     }, []);
 
     return children({ top });
-}
+};
 
 export default ScrollHeader;
