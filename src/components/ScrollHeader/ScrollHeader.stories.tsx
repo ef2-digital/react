@@ -12,4 +12,4 @@ const Template: ComponentStory<typeof ScrollHeader> = ({ ...props }) => {
 };
 
 export const Default = Template.bind({});
-Default.args = { children: () => <div className={classNames({ 'bg-red-400': top })}>{top ? 'true' : 'false'}</div> };
+Default.args = { children: ({ top }) => <div className={classNames({ 'bg-red-400': top })}>{top ? 'true' : 'false'}</div> };
