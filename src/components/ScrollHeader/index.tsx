@@ -9,11 +9,7 @@ const ScrollHeader = ({ children }: ScrollHeaderProps) => {
     const [top, setTop] = useState<boolean>(true);
 
     // Methods.
-    const handleOnScroll = (_: Event) => {
-        setTop(window.scrollY === 0);
-    };
-
-    const handleOnLoad = (_: Event) => {
+    const handleOnScroll = () => {
         setTop(window.scrollY === 0);
     };
 
@@ -21,7 +17,7 @@ const ScrollHeader = ({ children }: ScrollHeaderProps) => {
 
     // Life cycle.
     useEffect(() => {
-        window.addEventListener('load', handleOnLoad);
+        handleOnScroll();
         window.addEventListener('scroll', handleOnScrollThrottled);
         return () => window.removeEventListener('scroll', handleOnScrollThrottled);
     }, []);
