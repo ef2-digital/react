@@ -13,10 +13,15 @@ const ScrollHeader = ({ children }: ScrollHeaderProps) => {
         setTop(window.scrollY === 0);
     };
 
+    const handleOnLoad = (_: Event) => {
+        setTop(window.scrollY === 0);
+    };
+
     const handleOnScrollThrottled = useCallback(throttle(handleOnScroll, 100), [handleOnScroll]);
 
     // Life cycle.
     useEffect(() => {
+        window.addEventListener('load', handleOnLoad);
         window.addEventListener('scroll', handleOnScrollThrottled);
         return () => window.removeEventListener('scroll', handleOnScrollThrottled);
     }, []);
