@@ -19,7 +19,7 @@ export interface RatingProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
 
 const STARS = 5;
 
-const Rating = forwardRef<HTMLFieldSetElement, RatingProps>(
+const Rating = forwardRef<HTMLInputElement, RatingProps>(
     (
         {
             value,
@@ -30,7 +30,8 @@ const Rating = forwardRef<HTMLFieldSetElement, RatingProps>(
             variant,
             color = 'primary',
             activeIcon = 'starFill',
-            emptyIcon = 'star'
+            emptyIcon = 'star',
+            name
         },
         ref
     ) => {
@@ -44,8 +45,9 @@ const Rating = forwardRef<HTMLFieldSetElement, RatingProps>(
         // Methods.
         const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
             const value = event.target.value;
+            console.log({ value });
 
-            if (onChange && typeof Number(value)) {
+            if (onChange && typeof Number(value) === 'number') {
                 onChange && onChange(event, parseInt(value));
             }
         };
@@ -59,7 +61,6 @@ const Rating = forwardRef<HTMLFieldSetElement, RatingProps>(
 
         return (
             <fieldset
-                ref={ref}
                 className={classNames({
                     '[&>div]:focus-within:outline-dashed [&>div]:focus-within:outline-1 [&>div]:focus-within:outline-offset-4 [&>div]:focus-within:outline-primary':
                         !readOnly
@@ -74,16 +75,16 @@ const Rating = forwardRef<HTMLFieldSetElement, RatingProps>(
 
                         return (
                             <Fragment key={id}>
-                                <input
-                                    className="sr-only"
-                                    type="radio"
-                                    name="rating"
-                                    disabled={readOnly}
-                                    value={starValue}
-                                    onChange={handleOnChange}
-                                    id={id}
-                                />
-                                <label htmlFor={id}>
+                                <label>
+                                    <input
+                                        ref={ref}
+                                        type="radio"
+                                        className="sr-only"
+                                        name={name}
+                                        disabled={readOnly}
+                                        value={starValue}
+                                        onChange={handleOnChange}
+                                    />
                                     <span className="sr-only">{t('rating.star', { count: starValue })}</span>
                                     <span
                                         aria-hidden
