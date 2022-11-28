@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof Rating> = ({ ...props }) => {
         updateArgs({ value });
     };
 
-    return <Rating {...props} value={value} onChange={handleOnChange} />;
+    return <Rating {...props} value={value} onChange={(_, value) => handleOnChange(value)} />;
 };
 
 export const Default = Template.bind({});
