@@ -19,7 +19,7 @@ export interface RatingProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
 
 const STARS = 5;
 
-const Rating = forwardRef<HTMLInputElement, RatingProps>(
+const Rating = forwardRef<HTMLFieldSetElement, RatingProps>(
     (
         {
             value,
@@ -59,6 +59,7 @@ const Rating = forwardRef<HTMLInputElement, RatingProps>(
 
         return (
             <fieldset
+                ref={ref}
                 className={classNames({
                     '[&>div]:focus-within:outline-dashed [&>div]:focus-within:outline-1 [&>div]:focus-within:outline-offset-4 [&>div]:focus-within:outline-primary':
                         !readOnly
@@ -74,7 +75,6 @@ const Rating = forwardRef<HTMLInputElement, RatingProps>(
                         return (
                             <Fragment key={id}>
                                 <input
-                                    ref={ref}
                                     className="sr-only"
                                     type="radio"
                                     name="rating"
