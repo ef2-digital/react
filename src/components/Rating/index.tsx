@@ -45,7 +45,6 @@ const Rating = forwardRef<HTMLInputElement, RatingProps>(
         // Methods.
         const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
             const value = event.target.value;
-            console.log({ value });
 
             if (onChange && typeof Number(value) === 'number') {
                 onChange && onChange(event, parseInt(value));
