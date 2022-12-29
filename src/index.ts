@@ -1,4 +1,3 @@
-import 'client-only'
 import { Maybe } from './theme/types';
 import Button, { ButtonProps } from './components/Button';
 import ThemeProvider, { PartialTheme } from './components/ThemeProvider';
@@ -12,5 +11,5 @@ import Icon, { IconProps } from './components/Icon';
 import Rating, { RatingProps } from './components/Rating';
 import ScrollHeader, { ScrollHeaderProps } from './components/ScrollHeader';
 
-export type { ButtonProps, RowProps, PartialTheme, Maybe, ModalProps, IconProps, RatingProps, CopyrightProps, ScrollHeaderProps };
-export { Button, ThemeProvider, Container, Row, Toggle, Copyright, Modal, FormControl, Icon, Rating, ScrollHeader };
+export type { ButtonProps };
+export { Button, };

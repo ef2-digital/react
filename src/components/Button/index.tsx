@@ -1,8 +1,8 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
-import classNames from 'classnames';
 import { useThemeContext } from '../ThemeProvider';
-import { getAttributeClasses, getAttributeVariantClasses } from '../../utils/theme';
+import React from 'react';
 import Icon from '../Icon';
+import { classNames, getAttributeClasses, getAttributeVariantClasses } from '../../utils/theme';
 
 type Attributes = AnchorHTMLAttributes<HTMLAnchorElement> & ButtonHTMLAttributes<HTMLButtonElement>;
 

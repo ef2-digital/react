@@ -1,11 +1,15 @@
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import resolve from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import svgr from '@svgr/rollup';
+import del from 'rollup-plugin-delete';
+import { babel } from '@rollup/plugin-babel';
 
 const packageJson = require('./package.json');
+
+const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx'];
 
 export default {
     input: 'src/index.ts',
@@ -15,7 +19,6 @@ export default {
             format: 'cjs',
             sourcemap: true
         },
-        // The main benefit of shipping ES modules is that it makes your library tree-shakable. This is supported by tools like Rollup and webpack 2+.
         {
             file: packageJson.module,
             format: 'esm',
@@ -23,15 +26,33 @@ export default {
         }
     ],
     plugins: [
+        // Delete dist folder.
+        del({ targets: 'dist/*' }),
+
         svgr(),
-        peerDepsExternal(),
-        resolve(),
+
+        // This plugin avoids us from bundling the peerDependencies. (React)
+        peerDepsExternal({ includeDependencies: true }),
+
+        // This plugin includes the third-party external dependencies into our final bundle.
+        nodeResolve({ extensions: EXTENSIONS }),
+
+        // Enables the conversion to CJS.
         commonjs(),
-        typescript({
-            tsconfig: './tsconfig.json'
+
+        // Three shaking for React.
+        babel({
+            babelHelpers: 'runtime',
+            extensions: EXTENSIONS,
+            exclude: /node_modules/
         }),
+
+        // Generate (!only) type declaration files.
+        typescript(),
         postcss({
-            extensions: ['.css']
+            minimize: true,
+            modules: true,
+            extract: true,
         })
     ],
     external: [
@@ -41,16 +62,6 @@ export default {
         'tr46',
         'encoding',
         'node-fetch',
-        '@storybook/testing-library',
-        '@storybook/react',
-        '@storybook/manager-webpack5',
-        '@storybook/builder-webpack5',
-        '@storybook/addon-postcss',
-        '@storybook/addon-links',
-        '@storybook/addon-a11y',
-        '@storybook/addon-actions',
-        '@storybook/addon-docs',
-        '@storybook/addon-essentials',
-        '@storybook/addon-interactions'
+        '@babel/runtime'
     ]
 };

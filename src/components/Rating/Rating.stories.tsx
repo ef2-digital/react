@@ -2,6 +2,7 @@ import Rating from '.';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ThemeProvider from '../ThemeProvider';
 import { useArgs } from '@storybook/client-api';
+import React from 'react';
 
 export default {
     title: 'Input/Rating',
@@ -18,10 +19,10 @@ const Template: ComponentStory<typeof Rating> = ({ ...props }) => {
     return <Rating {...props} value={value} onChange={(_, value) => handleOnChange(value)} />;
 };
 
-export const Default = Template.bind({});
+export const Default: ComponentStory<typeof Rating> = Template.bind({});
 Default.args = { value: 3, readOnly: false };
 
-export const Theme = Template.bind({});
+export const Theme: ComponentStory<typeof Rating> = Template.bind({});
 Theme.args = { ...Default.args };
 Theme.decorators = [
     (Story) => (
@@ -46,7 +47,7 @@ Theme.decorators = [
     )
 ];
 
-export const Icon = Template.bind({});
+export const Icon: ComponentStory<typeof Rating> = Template.bind({});
 Icon.parameters = {
     docs: {
         description: {
@@ -73,7 +74,7 @@ Icon.decorators = [
     )
 ];
 
-export const Color = Template.bind({});
+export const Color: ComponentStory<typeof Rating> = Template.bind({});
 Color.args = { ...Default.args, classNameActive: '!fill-[#FF7A00]', classNameEmpty: '!fill-[#FF7A00]' };
 Color.parameters = {
     docs: {
@@ -83,5 +84,5 @@ Color.parameters = {
     }
 };
 
-export const ReadOnly = Template.bind({});
+export const ReadOnly: ComponentStory<typeof Rating> = Template.bind({});
 ReadOnly.args = { ...Default.args, readOnly: true };

@@ -1,6 +1,7 @@
 import ScrollHeader from '.';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames';
+import React from 'react';
 
 export default {
     title: 'Utils/ScrollHeader',
@@ -11,5 +12,5 @@ const Template: ComponentStory<typeof ScrollHeader> = ({ ...props }) => {
     return <ScrollHeader {...props} />;
 };
 
-export const Default = Template.bind({});
-Default.args = { children: ({ top }) => <div className={classNames({ 'bg-red-400': top })}>{top ? 'true' : 'false'}</div> };
+// export const Default = Template.bind({});
+// Default.args = { children: ({ top }) => <div className={classNames({ 'bg-red-400': top })}>{top ? 'true' : 'false'}</div> };

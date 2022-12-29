@@ -5,6 +5,7 @@ export type Variant = { DEFAULT: string; primary: string; [key: string]: string 
 
 export interface Component {
     variant: Attribute<Variant>;
+    [key: string]: Attribute<string | Variant>;
 }
 
 export interface Icon {
@@ -39,7 +40,8 @@ export interface Theme {
     icon: Icon;
     copyright: Copyright;
     modal: Modal;
-    formControl: FormControl
+    formControl: FormControl;
+    [key: string]: Component | { [key: string]: ElementType };
 }
 
 export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;

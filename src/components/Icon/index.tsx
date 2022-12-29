@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import React from 'react';
 import { useThemeContext } from '../ThemeProvider';
 
 export interface IconProps {
@@ -16,7 +16,7 @@ const Icon = ({ className, name = 'cooking', viewBox }: IconProps) => {
     // Render.
     const Component = icon[name] ?? icon['cooking'];
 
-    return <Component aria-hidden className={classNames(className)} width={24} height={24} viewBox={viewBox ?? '0 0 48 48'} />;
+    return <Component aria-hidden className={className} width={24} height={24} viewBox={viewBox ?? '0 0 48 48'} />;
 };
 
 export default Icon;

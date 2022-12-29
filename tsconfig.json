@@ -1,24 +1,24 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "rootDir": "./src",
-        "outDir": "./lib",
-        "lib": ["dom", "dom.iterable", "esnext"],
+        // enabling declaration (.d.ts) emit
         "declaration": true,
-        "declarationDir": "./",
+  
+        // optional - in general it's a good practice to decouple declaration files from your actual transpiled JavaScript files
+        "declarationDir": "types",
+  
+        // We are using Babel to transpile TS -> JS.
+        "emitDeclarationOnly": true,
+        "outDir": "dist",
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
         "allowJs": true,
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "module": "esnext",
         "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
         "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true,
-        "jsx": "react-jsx"
+        "isolatedModules": true
     },
-    "include": ["./src/**/*"],
-    "exclude": ["node_modules", "./src/**/*.stories.tsx", "lib"]
-}
+    "exclude": ["dist"]
+  }
+  
