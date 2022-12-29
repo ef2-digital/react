@@ -1,7 +1,6 @@
 import button from './button';
 import toggle from './toggle';
 import icon from './icon';
-import localization from './localization';
 import rating from './rating';
 import copyright from './copyright';
 import modal from './modal';
@@ -13,7 +12,6 @@ const theme: Theme = {
     toggle,
     icon,
     rating,
-    localization,
     copyright,
     modal,
     formControl

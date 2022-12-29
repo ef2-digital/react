@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
-import { useTranslation } from 'react-i18next';
 import { getAttributeVariantClasses } from '../../utils/theme';
 import { useThemeContext } from '../ThemeProvider';
 
@@ -13,14 +12,11 @@ export interface CopyrightProps {
 }
 
 const Copyright = ({ className, label, variant, color, screenReader }: PropsWithChildren<CopyrightProps>) => {
-    const { t } = useTranslation();
     const {
         theme: { copyright }
     } = useThemeContext();
 
     // [&>svg]:fill-primary
-
-    
 
     return (
         <a
@@ -29,7 +25,9 @@ const Copyright = ({ className, label, variant, color, screenReader }: PropsWith
             target="_blank"
             rel="noreferrer"
         >
-            <span>{label || t('copyright')} <span className="sr-only">{screenReader ?? `EF2 ${t('newWindow')}`}</span></span>
+            <span>
+                {label || 'Gebouwd door'} <span className="sr-only">{screenReader ?? `EF2 (opent in een nieuw venster)`}</span>
+            </span>
             <svg
                 className={classNames('fill-current	not-sr-only ml-3')}
                 width="30"

@@ -6,6 +6,7 @@ import Rating from '../Rating';
 import Toggle from '../Toggle';
 import { useArgs } from '@storybook/client-api';
 import FormControl from '../FormControl';
+import React from 'react';
 
 export default {
     title: 'ThemeProvider',
@@ -18,20 +19,9 @@ export default {
             }
         }
     },
-    argTypes: {
-        lng: {
-            options: ['nl', 'en'],
-            control: 'radio'
-        }
-    }
 } as ComponentMeta<typeof ThemeProvider>;
 
 const Template: ComponentStory<typeof ThemeProvider> = ({ ...props }) => {
-    const [{ lng }, updateArgs] = useArgs();
-
-    const toggle = (checked: boolean) => {
-        updateArgs({ lng: checked ? 'nl' : 'en' });
-    };
 
     return (
         <ThemeProvider {...props}>
@@ -45,9 +35,6 @@ const Template: ComponentStory<typeof ThemeProvider> = ({ ...props }) => {
                 </div>
                 <div className="col-span-1 flex justify-center items-center bg-gray-100 py-8 px-8">
                     <Copyright />
-                </div>
-                <div className="col-span-1 flex flex-col justify-center items-center bg-gray-100 py-8 px-8">
-                    <Toggle checked={lng === 'nl'} onChange={toggle} label="Toggle dutch language" />
                 </div>
                 <div className="col-span-1 flex flex-col justify-center items-center bg-gray-100 py-8 px-8">
                     <FormControl placeholder="you@example.com" />

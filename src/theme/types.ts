@@ -1,4 +1,3 @@
-import { ResourceKey } from 'i18next';
 import { ElementType } from 'react';
 
 export type Attribute<T = string> = { DEFAULT: T; [key: string]: T };
@@ -33,30 +32,11 @@ export interface Rating extends Component {
     empty: Attribute<Variant>;
 }
 
-export interface Resource {
-    nl: ResourceLanguage;
-    en: ResourceLanguage;
-    [language: string]: ResourceLanguage;
-}
-
-export interface ResourceLanguage {
-    input: {
-        rating: {
-            rating: string;
-            star_one: string;
-            star_other: string;
-        };
-    };
-    common: ResourceKey;
-    [namespace: string]: ResourceKey;
-}
-
 export interface Theme {
     button: Button;
     toggle: Toggle;
     rating: Rating;
     icon: Icon;
-    localization: Resource;
     copyright: Copyright;
     modal: Modal;
     formControl: FormControl

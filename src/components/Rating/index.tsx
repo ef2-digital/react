@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { ChangeEvent, forwardRef, Fragment, InputHTMLAttributes, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { getAttributeVariantClasses } from '../../utils/theme';
 import Icon from '../Icon';
 import { useThemeContext } from '../ThemeProvider';
@@ -35,7 +34,6 @@ const Rating = forwardRef<HTMLInputElement, RatingProps>(
         },
         ref
     ) => {
-        const { t } = useTranslation('input');
         const [hover, setHover] = useState<number>(value);
 
         const {
@@ -65,7 +63,7 @@ const Rating = forwardRef<HTMLInputElement, RatingProps>(
                         !readOnly
                 })}
             >
-                <legend className="sr-only">{t('rating.rating')}</legend>
+                <legend className="sr-only">Your rating</legend>
                 <div className={classNames(getAttributeVariantClasses(rating.variant, variant, color), classNameEmpty)}>
                     {Array.from(Array(STARS).keys()).map((index) => {
                         const starValue = index + 1;
@@ -84,7 +82,7 @@ const Rating = forwardRef<HTMLInputElement, RatingProps>(
                                         value={starValue}
                                         onChange={handleOnChange}
                                     />
-                                    <span className="sr-only">{t('rating.star', { count: starValue })}</span>
+                                    <span className="sr-only">{`${starValue} stars`}</span>
                                     <span
                                         aria-hidden
                                         className={classNames({
