@@ -59,8 +59,7 @@ export default [
             typescript({
                 tsconfig: 'tsconfig.json'
             })
-        ],
-        external: ['react', 'react-dom', 'tailwindcss', 'tr46', 'encoding', 'node-fetch', '@babel/runtime']
+        ]
     },
     {
         input: 'dist/types/index.d.ts',
