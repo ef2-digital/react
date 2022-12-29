@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
+import { classNames } from '../../utils/theme';
 
 export interface ButtonGroupProps {
     className?: string;

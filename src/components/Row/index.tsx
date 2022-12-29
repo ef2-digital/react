@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import { forwardRef, PropsWithChildren } from 'react';
+import { classNames } from '../../utils/theme';
 
 export interface RowProps extends PropsWithChildren {
     className?: string;
@@ -13,6 +13,6 @@ const Row = forwardRef<HTMLDivElement, RowProps>(({ children, className }, ref) 
     );
 });
 
-Row.displayName = 'Row';
+// Row.displayName = 'Row';
 
 export default Row;

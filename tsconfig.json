@@ -2,17 +2,18 @@
     "compilerOptions": {
         // enabling declaration (.d.ts) emit
         "declaration": true,
-  
+
         // optional - in general it's a good practice to decouple declaration files from your actual transpiled JavaScript files
         "declarationDir": "types",
-  
+
         // We are using Babel to transpile TS -> JS.
         "emitDeclarationOnly": true,
         "outDir": "dist",
         "noImplicitAny": true,
         "module": "es6",
         "target": "es5",
-        "jsx": "react",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
@@ -20,5 +21,4 @@
         "isolatedModules": true
     },
     "exclude": ["dist"]
-  }
-  
+}

@@ -1,6 +1,5 @@
-import classNames from 'classnames';
 import { InputHTMLAttributes } from 'react';
-import { getAttributeVariantClasses } from '../../utils/theme';
+import { classNames, getAttributeVariantClasses } from '../../utils/theme';
 import { useThemeContext } from '../ThemeProvider';
 
 export interface FormControlProps extends InputHTMLAttributes<HTMLInputElement> {

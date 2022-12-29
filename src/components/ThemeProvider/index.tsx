@@ -1,4 +1,4 @@
-import React, { ElementType, PropsWithChildren } from 'react';
+import { isValidElement, type PropsWithChildren } from 'react';
 import { createContext, useContext } from 'react';
 import { Component, DeepPartial, Theme } from '../../theme/types';
 import defaultTheme from '../../theme';
@@ -60,7 +60,7 @@ const mergeTheme = (defaultTheme: Theme, newTheme?: PartialTheme): Theme => {
     }
 
     const theme = Object.entries(defaultTheme).reduce((a: Theme, [key, value]) => {
-        if (typeof value === 'object' && React.isValidElement(value)) {
+        if (typeof value === 'object' && isValidElement(value)) {
             a[key] = value;
         }
 

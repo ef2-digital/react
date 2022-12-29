@@ -3,10 +3,7 @@ import Button from '../Button';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Copyright from '../Copyright';
 import Rating from '../Rating';
-import Toggle from '../Toggle';
-import { useArgs } from '@storybook/client-api';
 import FormControl from '../FormControl';
-import React from 'react';
 
 export default {
     title: 'ThemeProvider',

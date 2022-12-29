@@ -1,6 +1,5 @@
-import classNames from 'classnames';
 import { ChangeEvent, forwardRef, Fragment, InputHTMLAttributes, useEffect, useState } from 'react';
-import { getAttributeVariantClasses } from '../../utils/theme';
+import { classNames, getAttributeVariantClasses } from '../../utils/theme';
 import Icon from '../Icon';
 import { useThemeContext } from '../ThemeProvider';
 
@@ -118,7 +117,5 @@ const Rating = forwardRef<HTMLInputElement, RatingProps>(
         );
     }
 );
-
-Rating.displayName = 'Rating';
 
 export default Rating;

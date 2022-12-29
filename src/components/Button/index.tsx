@@ -1,6 +1,5 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
 import { useThemeContext } from '../ThemeProvider';
-import React from 'react';
 import Icon from '../Icon';
 import { classNames, getAttributeClasses, getAttributeVariantClasses } from '../../utils/theme';
 

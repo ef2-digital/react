@@ -2,7 +2,6 @@ import Rating from '.';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ThemeProvider from '../ThemeProvider';
 import { useArgs } from '@storybook/client-api';
-import React from 'react';
 
 export default {
     title: 'Input/Rating',

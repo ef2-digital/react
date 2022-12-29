@@ -1,5 +1,5 @@
 import { ReactElement, useCallback, useEffect, useState } from 'react';
-import { throttle } from 'lodash-es';
+import { throttle } from '../../utils/helpers';
 
 export interface ScrollHeaderProps {
     children: ({ top }: { top: boolean }) => ReactElement;
