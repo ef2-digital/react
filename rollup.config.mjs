@@ -26,6 +26,7 @@ export default [
                 sourcemap: true
             }
         ],
+        external: Object.keys(packageJson.dependencies),
         plugins: [
             // Delete dist folder.
             del({ targets: 'dist/*' }),
@@ -33,7 +34,7 @@ export default [
             svgr(),
 
             // This plugin avoids us from bundling the peerDependencies. (React)
-            peerDepsExternal({ includeDependencies: true }),
+            peerDepsExternal(),
 
             // This plugin includes the third-party external dependencies into our final bundle.
             nodeResolve({ extensions: EXTENSIONS }),
