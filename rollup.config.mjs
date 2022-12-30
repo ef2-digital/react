@@ -34,12 +34,12 @@ export default [
             svgr(),
 
             // This plugin avoids us from bundling the peerDependencies. (React)
-            peerDepsExternal(),
+            peerDepsExternal({ includeDependencies: true }),
 
             // This plugin includes the third-party external dependencies into our final bundle.
             nodeResolve({ extensions: EXTENSIONS }),
 
-            // Enables the conversion to CJS.
+            // TODO description
             commonjs(),
 
             // Three shaking for React.
