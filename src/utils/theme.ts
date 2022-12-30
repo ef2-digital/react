@@ -1,4 +1,3 @@
-// import classNames from 'classnames';
 import { Attribute, Variant } from '../theme/types';
 
 export const classNames = (...args: (string | { [key: string]: boolean } | undefined)[]): string => {
