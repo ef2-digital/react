@@ -28,13 +28,13 @@ export default [
         ],
         external: Object.keys(packageJson.dependencies),
         plugins: [
-            // Delete dist folder.
-            del({ targets: 'dist/*' }),
+            // Delete lib folder.
+            del({ targets: 'lib/*' }),
 
             svgr(),
 
             // This plugin avoids us from bundling the peerDependencies. (React)
-            peerDepsExternal({ includeDependencies: true }),
+            peerDepsExternal(),
 
             // This plugin includes the third-party external dependencies into our final bundle.
             nodeResolve({ extensions: EXTENSIONS }),
@@ -63,8 +63,8 @@ export default [
         ]
     },
     {
-        input: 'dist/types/index.d.ts',
-        output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+        input: 'lib/types/index.d.ts',
+        output: [{ file: 'lib/index.d.ts', format: 'esm' }],
         plugins: [dts()]
     }
 ];
