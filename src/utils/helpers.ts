@@ -7,21 +7,20 @@ export const debounce = <T extends (...args: Parameters<T>) => ReturnType<T>>(ca
 };
 
 export const throttle = <T extends (...args: Parameters<T>) => ReturnType<T>>(callback: T, delay: number) => {
-    let inThrottle: boolean;
-    let lastResult: ReturnType<T>;
+    let timeout: NodeJS.Timer | number | null = null;
+    let callbackArgs: IArguments | null = null;
+    const context = this;
 
-    return function (this: any): ReturnType<T> {
-        const args = arguments;
-        const context = this;
+    const later = () => {
+        callback.apply(context, callbackArgs);
+        timeout = null;
+    };
 
-        if (!inThrottle) {
-            inThrottle = true;
-
-            setTimeout(() => (inThrottle = false), delay);
-            lastResult = callback.apply(context, args);
+    return function () {
+        if (!timeout) {
+            callbackArgs = arguments;
+            timeout = setTimeout(later, delay);
         }
-
-        return lastResult;
     };
 };
 

@@ -8,10 +8,10 @@ import Toggle, { type ToggleProps } from './components/Toggle';
 import Copyright, { type CopyrightProps } from './components/Copyright';
 import FormControl, { type FormControlProps } from './components/FormControl';
 // TODO
-// import Modal, { type ModalProps } from './components/Modal';
+import Modal, { type ModalProps } from './components/Modal';
 import Icon, { type IconProps } from './components/Icon';
 import Rating, { type RatingProps } from './components/Rating';
 import ScrollHeader, { type ScrollHeaderProps } from './components/ScrollHeader';
 
-export type { ButtonProps, IconProps, ContainerProps, PartialTheme, Maybe, RowProps, ScrollHeaderProps, RatingProps, FormControlProps, CopyrightProps, ToggleProps };
-export { Button, Icon, Container, ThemeProvider, Row, ScrollHeader, Rating, FormControl, Copyright, Toggle };
+export type { ButtonProps, IconProps, ContainerProps, PartialTheme, Maybe, RowProps, ScrollHeaderProps, RatingProps, FormControlProps, CopyrightProps, ToggleProps, ModalProps };
+export { Button, Icon, Container, ThemeProvider, Row, ScrollHeader, Rating, FormControl, Copyright, Toggle, Modal };
