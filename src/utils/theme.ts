@@ -1,4 +1,5 @@
 import { Attribute, Variant } from '../theme/types';
+import { twMerge } from 'tailwind-merge';
 
 export const classNames = (...args: (string | { [key: string]: boolean } | undefined)[]): string => {
     return args.reduce<string>((a: string, c) => {
@@ -13,7 +14,7 @@ export const classNames = (...args: (string | { [key: string]: boolean } | undef
                 : classNames(...Object.entries(c).filter(([_, value]) => value).map(([key]) => key));
 
         if (Boolean(cn.length)) {
-            return Boolean(a.length) ? `${a} ${cn}` : cn;
+            return Boolean(a.length) ? twMerge(a, cn) : cn;
         }
 
         return a;
