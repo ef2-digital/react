@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, forwardRef } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, ElementType, forwardRef, PropsWithChildren } from 'react';
 import { useThemeContext } from '../ThemeProvider';
 import Icon from '../Icon';
 import { classNames, getAttributeClasses, getAttributeVariantClasses } from '../../utils/theme';
@@ -9,14 +9,13 @@ export interface ButtonProps extends Attributes {
     as?: ElementType;
     variant?: string;
     color?: string;
-    children: string;
     size?: string;
     rounded?: boolean;
     startIcon?: string;
     endIcon?: string;
 }
 
-const Button = forwardRef<HTMLElement, ButtonProps>(
+const Button = forwardRef<HTMLElement, PropsWithChildren<ButtonProps>>(
     ({ as: Tag = 'button', children, variant, color = 'primary', size, rounded, className, startIcon, endIcon, ...props }, ref) => {
         const {
             theme: { button }
