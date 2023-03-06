@@ -23,6 +23,7 @@ export interface Toggle extends Component {
 
 export interface Copyright extends Component {}
 export interface FormControl extends Component {}
+export interface Row extends Attribute {}
 
 export interface Modal extends Component {
     overlay: Attribute;
@@ -37,11 +38,12 @@ export interface Theme {
     button: Button;
     toggle: Toggle;
     rating: Rating;
+    row: Row;
     icon: Icon;
     copyright: Copyright;
     modal: Modal;
     formControl: FormControl;
-    [key: string]: Component | { [key: string]: ElementType };
+    [key: string]: Component | Attribute | { [key: string]: ElementType };
 }
 
 export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;
