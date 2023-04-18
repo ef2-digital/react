@@ -12,6 +12,7 @@ import Modal, { type ModalProps } from './components/Modal';
 import Icon, { type IconProps } from './components/Icon';
 import Rating, { type RatingProps } from './components/Rating';
 import ScrollHeader, { type ScrollHeaderProps } from './components/ScrollHeader';
+import LocaleDropdown, { type LocaleDropdownProps } from './components/LocaleDropdown';
 
-export type { ButtonProps, IconProps, ContainerProps, PartialTheme, Maybe, RowProps, ScrollHeaderProps, RatingProps, FormControlProps, CopyrightProps, ToggleProps, ModalProps };
-export { Button, Icon, Container, ThemeProvider, Row, ScrollHeader, Rating, FormControl, Copyright, Toggle, Modal };
+export type { ButtonProps, IconProps, ContainerProps, PartialTheme, Maybe, RowProps, ScrollHeaderProps, RatingProps, FormControlProps, CopyrightProps, ToggleProps, ModalProps, LocaleDropdownProps };
+export { Button, Icon, Container, ThemeProvider, Row, ScrollHeader, Rating, FormControl, Copyright, Toggle, Modal, LocaleDropdown };

@@ -11,10 +11,8 @@ const Row = forwardRef<HTMLDivElement, RowProps>(({ children, className }, ref) 
         theme: { row }
     } = useThemeContext();
 
-    console.log({ row })
-
     return (
-        <div ref={ref} className={classNames(row.DEFAULT, className)}>
+        <div ref={ref} className={classNames(getAttributeClasses(row), className)}>
             {children}
         </div>
     );
