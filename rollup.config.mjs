@@ -2,13 +2,11 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import postcss from 'rollup-plugin-postcss';
 import svgr from '@svgr/rollup';
 import del from 'rollup-plugin-delete';
 import { babel } from '@rollup/plugin-babel';
 import dts from 'rollup-plugin-dts';
 import packageJson from './package.json' assert { type: 'json' };
-
 const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx'];
 
 export default [
@@ -47,13 +45,6 @@ export default [
                 babelHelpers: 'runtime',
                 extensions: EXTENSIONS,
                 exclude: /node_modules/
-            }),
-
-            // TODO not needed?
-            postcss({
-                minimize: true,
-                modules: true,
-                extract: true
             }),
 
             // Generate (!only) type declaration files.

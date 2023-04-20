@@ -73,7 +73,13 @@ const LocaleDropdown = ({
                                 children: (
                                     <>
                                         <span className="sr-only">{locale}</span>
-                                        <Icon name={iconMap.get(locale)} viewBox={iconViewBox} />
+                                        <span className="flex items-center text-sm">
+                                            <Icon name={iconMap.get(locale)} viewBox={iconViewBox} className="mr-2" />
+                                            {locale
+                                                .split('-')
+                                                .slice(-1)
+                                                .map((locale) => locale.toUpperCase())}
+                                        </span>
                                     </>
                                 ),
                                 locale,
