@@ -33,7 +33,8 @@ const LocaleDropdown = ({
     iconMap = new Map<string, string>([
         ['fr', 'localeFr'],
         ['en', 'localeEn'],
-        ['nl', 'localeNl']
+        ['nl', 'localeNl'],
+        ['be', 'localeBe']
     ]),
     iconViewBox = '0 0 48 48',
     iconExpandName = 'expandMore',
@@ -42,8 +43,7 @@ const LocaleDropdown = ({
 }: LocaleDropdownProps) => {
     return (
         <Menu as="div" className={classNames('inline-flex relative', className)}>
-            <Menu.Button className={classNames('inline-flex items-center', classNameButton)}>
-                {locale}
+            <Menu.Button className={classNames('inline-flex items-center mr-4', classNameButton)}>
                 {renderIconExpand ? (
                     renderIconExpand({ locale })
                 ) : (
@@ -63,13 +63,22 @@ const LocaleDropdown = ({
             >
                 <Menu.Items
                     className={classNames(
-                        'absolute left-0 mt-2 flex origin-top-left flex-col divide-y divide-gray-100 rounded-md bg-white shadow-lg lg:left-auto lg:right-0 lg:origin-top-right',
+                        'absolute mt-2 flex origin-top-left flex-col divide-y divide-gray-100 rounded-md bg-white shadow-lg lg:right-0 lg:origin-top-right',
                         classNameItems
                     )}
                 >
                     {locales.map((locale) => (
                         <Menu.Item key={locale}>
-                            {renderLink({ children: <>{locale}</>, locale, className: classNames('flex', classNameItem) })}
+                            {renderLink({
+                                children: (
+                                    <>
+                                        <span className="sr-only">{locale}</span>
+                                        <Icon name={iconMap.get(locale)} viewBox={iconViewBox} />
+                                    </>
+                                ),
+                                locale,
+                                className: classNames('flex', classNameItem)
+                            })}
                         </Menu.Item>
                     ))}
                 </Menu.Items>

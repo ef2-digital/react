@@ -21,7 +21,7 @@ export default [
                 sourcemap: true
             },
             {
-                file: packageJson.module,
+                file: `${packageJson.module}`,
                 format: 'esm',
                 sourcemap: true
             }
