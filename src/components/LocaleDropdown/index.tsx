@@ -34,7 +34,7 @@ const LocaleDropdown = ({
         ['fr', 'localeFr'],
         ['en', 'localeEn'],
         ['nl', 'localeNl'],
-        ['be', 'localeBe']
+        ['nl-BE', 'localeBe']
     ]),
     iconViewBox = '0 0 48 48',
     iconExpandName = 'expandMore',
