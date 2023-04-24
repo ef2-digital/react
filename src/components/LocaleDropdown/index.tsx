@@ -11,6 +11,7 @@ export interface LocaleDropdownProps {
     classNameButton?: string;
     classNameItems?: string;
     classNameItem?: string;
+    classNameLocale?: string;
     renderIcon?({ locale }: { locale: string }): ReactNode;
     renderIconExpand?({ locale }: { locale: string }): ReactNode;
     iconMap?: Map<string, string>;
@@ -38,12 +39,13 @@ const LocaleDropdown = ({
     iconViewBox = '0 0 48 48',
     iconExpandName = 'expandMore',
     classNameIconExpand,
-    className
+    className,
+    classNameLocale
 }: LocaleDropdownProps) => {
     return (
         <Menu as="div" className={classNames('inline-flex relative', className)}>
             <Menu.Button className={classNames('inline-flex items-center', classNameButton)}>
-                {locale}
+                <span className={classNameLocale}>{locale}</span>
                 {renderIconExpand ? (
                     renderIconExpand({ locale })
                 ) : (
