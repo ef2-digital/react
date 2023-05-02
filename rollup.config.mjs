@@ -7,6 +7,8 @@ import del from 'rollup-plugin-delete';
 import { babel } from '@rollup/plugin-babel';
 import dts from 'rollup-plugin-dts';
 import packageJson from './package.json' assert { type: 'json' };
+import refresh from 'rollup-plugin-react-refresh';
+
 const EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx'];
 
 export default [
@@ -27,7 +29,8 @@ export default [
         external: Object.keys(packageJson.dependencies),
         plugins: [
             // Delete lib folder.
-            del({ targets: 'lib/*' }),
+            // process.env.NODE_ENV !== 'development' && del({ targets: 'lib/*' }),
+            refresh(),
 
             svgr(),
 
@@ -46,7 +49,6 @@ export default [
                 extensions: EXTENSIONS,
                 exclude: /node_modules/
             }),
-
             // Generate (!only) type declaration files.
             typescript({
                 tsconfig: 'tsconfig.json'

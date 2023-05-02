@@ -7,7 +7,7 @@
             {
                 "runtime": "automatic"
             }
-        ]
+        ],
     ],
     "plugins": [["@babel/plugin-transform-runtime", { "useESModules": true }]],
     "exclude": "node_modules/**"
