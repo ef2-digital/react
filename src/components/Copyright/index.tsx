@@ -20,7 +20,7 @@ const Copyright = ({ className, label, variant, color, screenReader }: PropsWith
     return (
         <a
             className={classNames(getAttributeVariantClasses(copyright.variant, variant, color), className)}
-            href="https://ef2.nl/"
+            href="https://www.ef2.nl"
             target="_blank"
             rel="noreferrer"
         >
